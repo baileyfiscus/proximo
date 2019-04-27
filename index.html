@@ -30,22 +30,29 @@
 <script>
 var txt;
 var x = document.getElementById("demo");
+var initialized = false;
 
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+if (initialized!= true)
+	{
+	  initialized = true;
+	  if (navigator.geolocation) 
+	  {
+		navigator.geolocation.getCurrentPosition(showPosition);
 
-    var text = document.getElementById("Post").value;
-    localStorage.setItem("text", text);
+		var text = document.getElementById("Post").value;
+		
+		localStorage.setItem("text", text);
 
-    var para = document.createElement("P");
-    para.innerHTML = txt + " : " + text;
-    document.getElementById("myDIV").appendChild(para);
+		var para = document.createElement("P");
+		para.innerHTML = txt + " : " + text;
+		document.getElementById("myDIV").appendChild(para);
 
 
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+	  } else { 
+		x.innerHTML = "Geolocation is not supported by this browser.";
+	  }
+	}
 }
 
 function showPosition(position) {
