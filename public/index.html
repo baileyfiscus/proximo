@@ -9,11 +9,17 @@
 <body>
 
   <div class="currentLocation">
-    <p>Post</p>
+    <p id = "demoPost">Post</p>
   	<p id="demo"></p>
+    <button type="button" onclick="buttonVisible()">Hide post</button>
   </div>
+  <script>
+  function buttonVisible() {
+    document.getElementById("demoPost").style.visibility = "hidden";
+  }
+  </script>
   <div class="feed" id="myDIV">
-  	
+
   </div>
   <div class="post">
   	<div class="input-group mb-3">
@@ -33,30 +39,30 @@ var x = document.getElementById("demo");
 var initialized = false;
 var currentTime = new Date();
 
-function getLocation() 
+function getLocation()
 {
 
 	if (initialized != true)
-	{	
+	{
 		if (navigator.geolocation)
-		{		
+		{
 			navigator.geolocation.getCurrentPosition(showPosition);
 			initialized = true;
-			
+
 		}
-		else 
-		{ 
+		else
+		{
 			x.innerHTML = "Geolocation is not supported by this browser.";
 			initialized = false;
 		}
 	}
-	
-	if (initialized == true) 
+
+	if (initialized == true)
 	{
-	
+
 		var text = document.getElementById("Post").value;
 
-		
+
 		localStorage.setItem("text", text);
 		var currentTime = new Date()
 		var hour = (currentTime.getHours())%12;
@@ -66,39 +72,39 @@ function getLocation()
 			minute = "0" + minute;
 		}
 		var time = "("+hour + ":" + minute;
-		
+
 		if (currentTime.getHours() >12)
 		{
 			time += " PM)";
 		}
-		
+
 		else
 		{
 			time+= " AM)";
 		}
-		
+
 
 		var para = document.createElement("P");
 		para.innerHTML = time + " : " + txt + " : " + text;
 		document.getElementById("myDIV").appendChild(para);
-	}	
+	}
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
 }
 
-function myFunction() 
+function myFunction()
 {
   var person = prompt("Please enter your name:", "");
-  
-  if (person == null || person == "") 
+
+  if (person == null || person == "")
   {
     txt = "User cancelled the prompt.";
-  } 
-  
-  else 
+  }
+
+  else
   {
     txt = person;
   }
@@ -107,7 +113,7 @@ function myFunction()
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
   <script>
     // Initialize Firebase
-    var config = 
+    var config =
     {
       apiKey: "AIzaSyADXaLIDoKmazDp_ZxdzpLyP7B9H9C6gJ4",
       authDomain: "proximo-chat.firebaseapp.com",
@@ -121,3 +127,4 @@ function myFunction()
 
 </body>
 </html>
+
