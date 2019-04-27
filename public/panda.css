@@ -6,8 +6,20 @@
 	background-color: red;
 }
 
-.feed{
+.prefeed{
+	display: block;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 70vh;
+	width: 100vw;
+	background-color: lightblue;
+  	overflow: scroll;
 
+}
+
+.feed{
+	display: none;
 	//Variable height and width for dynamic aspect ratios;
 	height: 70vh;
 	width: 100vw;
@@ -16,9 +28,10 @@
 }
 
 .post{
-
+	display: none;
 	//Variable height and width for dynamic aspect ratios;
 	height: 15vh;
 	width: 100vw;
 	background-color: yellow;
+
 }
