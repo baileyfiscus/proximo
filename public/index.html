@@ -61,16 +61,27 @@ function getLocation()
 		var currentTime = new Date()
 		var hour = (currentTime.getHours())%12;
 		var minute = (currentTime.getMinutes());
-		var time = "("+hour + ":" + minute+")";
+		if (minute<10)
+		{
+			minute = "0" + minute;
+		}
+		var time = "("+hour + ":" + minute;
+		
+		if (currentTime.getHours() >12)
+		{
+			time += " PM)";
+		}
+		
+		else
+		{
+			time+= " AM)";
+		}
 		
 
 		var para = document.createElement("P");
 		para.innerHTML = time + " : " + txt + " : " + text;
 		document.getElementById("myDIV").appendChild(para);
-	}
-	
-
-	
+	}	
 }
 
 function showPosition(position) {
