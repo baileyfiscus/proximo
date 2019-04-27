@@ -1,16 +1,14 @@
 .currentLocation{
-	//height: 100px;
-	//width: 100%;
-	//Variable height and width for dynamic aspect ratios
+
+	//Variable height and width for dynamic aspect ratios;
 	height: 10vh;
 	width: 100vw;
 	background-color: red;
 }
 
 .feed{
-	//height: 500px;
-	//width: 100%;
-	//Variable height and width for dynamic aspect ratios
+
+	//Variable height and width for dynamic aspect ratios;
 	height: 70vh;
 	width: 100vw;
 	background-color: lightblue;
@@ -18,9 +16,8 @@
 }
 
 .post{
-	//height: 100px;
-	//width: 100%;
-	//Variable height and width for dynamic aspect ratios
+
+	//Variable height and width for dynamic aspect ratios;
 	height: 15vh;
 	width: 100vw;
 	background-color: yellow;
