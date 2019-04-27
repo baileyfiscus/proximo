@@ -33,13 +33,13 @@ var x = document.getElementById("demo");
 var initialized = false;
 var currentTime = new Date();
 
-function getLocation() {
+function getLocation() 
+{
 
 	if (initialized != true)
 	{	
 		if (navigator.geolocation)
-		{
-			
+		{		
 			navigator.geolocation.getCurrentPosition(showPosition);
 			initialized = true;
 			
@@ -67,7 +67,6 @@ function getLocation() {
 		var para = document.createElement("P");
 		para.innerHTML = time + " : " + txt + " : " + text;
 		document.getElementById("myDIV").appendChild(para);
-
 	}
 	
 
@@ -79,11 +78,17 @@ function showPosition(position) {
   "<br>Longitude: " + position.coords.longitude;
 }
 
-function myFunction() {
+function myFunction() 
+{
   var person = prompt("Please enter your name:", "");
-  if (person == null || person == "") {
+  
+  if (person == null || person == "") 
+  {
     txt = "User cancelled the prompt.";
-  } else {
+  } 
+  
+  else 
+  {
     txt = person;
   }
 }
