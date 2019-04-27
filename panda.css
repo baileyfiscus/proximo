@@ -1,0 +1,16 @@
+.currentLocation{
+	height: 100px;
+	width: 100%;
+	background-color: red;
+}
+.feed{
+	height: 500px;
+	width: 100%;
+	background-color: lightblue;
+  	overflow: scroll;
+}
+.post{
+	height: 100px;
+	width: 100%;
+	background-color: yellow;
+}
