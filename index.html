@@ -17,22 +17,32 @@
   </div>
   <div class="post">
   	<div class="input-group mb-3">
-      <input type="text" class="form-control" row="4" placeholder="Recipient's username" aria-label="Enter a post!" aria-describedby="basic-addon2">
+      <input id="Post" type="text" class="form-control" row="4" placeholder="Enter in a Post!" aria-label="Enter a post!" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" onclick="getLocation()" type="button">Post</button>
+        <button id="button" class="btn btn-outline-secondary" onclick="getLocation()" type="button">Post</button>
       </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" onclick="myFunction()" >Change Name</button>
     </div>
   </div>
 
 <script>
+var txt;
 var x = document.getElementById("demo");
 
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
+
+    var text = document.getElementById("Post").value;
+    localStorage.setItem("text", text);
+
     var para = document.createElement("P");
-    para.innerHTML = "This is a paragraph.";
+    para.innerHTML = txt + " : " + text;
     document.getElementById("myDIV").appendChild(para);
+
+
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -42,6 +52,29 @@ function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
 }
+
+function myFunction() {
+  var person = prompt("Please enter your name:", "");
+  if (person == null || person == "") {
+    txt = "User cancelled the prompt.";
+  } else {
+    txt = person;
+  }
+}
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = 
+    {
+      apiKey: "AIzaSyADXaLIDoKmazDp_ZxdzpLyP7B9H9C6gJ4",
+      authDomain: "proximo-chat.firebaseapp.com",
+      databaseURL: "https://proximo-chat.firebaseio.com",
+      projectId: "proximo-chat",
+      storageBucket: "proximo-chat.appspot.com",
+      messagingSenderId: "458728229377"
+    };
+    firebase.initializeApp(config);
 </script>
 
 </body>
