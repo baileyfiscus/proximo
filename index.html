@@ -33,26 +33,38 @@ var x = document.getElementById("demo");
 var initialized = false;
 
 function getLocation() {
-if (initialized!= true)
+	if (initialized != true)
+	{	
+		if (navigator.geolocation)
+		{
+			
+			navigator.geolocation.getCurrentPosition(showPosition);
+			initialized = true;
+			
+		}
+		else 
+		{ 
+			x.innerHTML = "Geolocation is not supported by this browser.";
+			initialized = false;
+		}
+	}
+	
+	if (initialized == true) 
 	{
-	  initialized = true;
-	  if (navigator.geolocation) 
-	  {
-		navigator.geolocation.getCurrentPosition(showPosition);
-
+	
 		var text = document.getElementById("Post").value;
-		
+		var text = "dog";
+
 		localStorage.setItem("text", text);
 
 		var para = document.createElement("P");
 		para.innerHTML = txt + " : " + text;
 		document.getElementById("myDIV").appendChild(para);
 
-
-	  } else { 
-		x.innerHTML = "Geolocation is not supported by this browser.";
-	  }
 	}
+	
+
+	
 }
 
 function showPosition(position) {
