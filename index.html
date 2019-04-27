@@ -31,8 +31,10 @@
 var txt;
 var x = document.getElementById("demo");
 var initialized = false;
+var currentTime = new Date();
 
 function getLocation() {
+
 	if (initialized != true)
 	{	
 		if (navigator.geolocation)
@@ -53,12 +55,18 @@ function getLocation() {
 	{
 	
 		var text = document.getElementById("Post").value;
-		var text = "dog";
 
+		
 		localStorage.setItem("text", text);
+		var currentTime = new Date()
+		var hour = (currentTime.getHours())%12;
+		var minute = (currentTime.getMinutes());
+
+
+		var time = hour + ":" + minute;
 
 		var para = document.createElement("P");
-		para.innerHTML = txt + " : " + text;
+		para.innerHTML = time + " : " + txt + " : " + text;
 		document.getElementById("myDIV").appendChild(para);
 
 	}
