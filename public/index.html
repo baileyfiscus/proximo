@@ -8,24 +8,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <body>
 
+
   <div class="currentLocation">
     <p id = "demoPost">Post</p>
   	<p id="demo"></p>
-    <button type="button" onclick="buttonVisible()">Hide post</button>
+    <button type="button" id="demoButton">Hide post</button>
   </div>
-  <script>
-  function buttonVisible() {
-    document.getElementById("demoPost").style.visibility = "hidden";
-  }
-  </script>
-  <div class="feed" id="myDIV">
 
+  <div class="prefeed">
+    <input id = "firstName" type = "text" placeholder="Enter start name!" ria-label="Enter a post!" aria-describedby="basic-addon2">
+    <br>
+      <button type="button" id="showBottom" onclick = "showBottomPosition()">Show Bottom!</button>
+  </div>
+  <div class="feed" id="myDIV">
   </div>
   <div class="post">
   	<div class="input-group mb-3">
       <input id="Post" type="text" class="form-control" row="4" placeholder="Enter in a Post!" aria-label="Enter a post!" aria-describedby="basic-addon2">
       <div class="input-group-append">
-        <button id="button" class="btn btn-outline-secondary" onclick="getLocation()" type="button">Post</button>
+        <button id="button" class="btn btn-outline-secondary" onclick="getLocation();document.getElementById('Post').value = ''" type="button" >Post</button>
       </div>
     </div>
     <div>
@@ -61,7 +62,6 @@ function getLocation()
 	{
 
 		var text = document.getElementById("Post").value;
-
 
 		localStorage.setItem("text", text);
 		var currentTime = new Date()
@@ -109,6 +109,26 @@ function myFunction()
     txt = person;
   }
 }
+
+function buttonVisible() {
+  document.getElementById("demoPost").style.visibility = "hidden";
+}
+function showBottomPosition() {
+  var pathDisplay = document.getElementsByClassName('post'), i;
+  var feedDisplay = document.getElementsByClassName('feed'), j;
+  var preFeedDisplay = document.getElementsByClassName('prefeed'), k;
+
+for (var i = 0; i < pathDisplay.length; i ++) {
+    pathDisplay[i].style.display = 'block';
+}
+for (var i = 0; i < feedDisplay.length; i ++) {
+    feedDisplay[i].style.display = 'block';
+}
+for (var i = 0; i < preFeedDisplay.length; i ++) {
+    preFeedDisplay[i].style.display = 'none';
+}
+}
+
 </script>
 <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
   <script>
