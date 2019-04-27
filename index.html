@@ -61,9 +61,8 @@ function getLocation() {
 		var currentTime = new Date()
 		var hour = (currentTime.getHours())%12;
 		var minute = (currentTime.getMinutes());
-
-
-		var time = hour + ":" + minute;
+		var time = "("+hour + ":" + minute+")";
+		
 
 		var para = document.createElement("P");
 		para.innerHTML = time + " : " + txt + " : " + text;
